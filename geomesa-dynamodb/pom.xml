@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>geomesa_2.12</artifactId>
+        <groupId>org.locationtech.geomesa</groupId>
+        <version>5.4.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>geomesa-dynamodb_2.12</artifactId>
+    <packaging>pom</packaging>
+    <name>GeoMesa DynamoDB Parent</name>
+
+    <modules>
+        <module>geomesa-dynamodb-datastore</module>
+        <module>geomesa-dynamodb-dist</module>
+        <module>geomesa-dynamodb-gs-plugin</module>
+        <module>geomesa-dynamodb-tools</module>
+    </modules>
+
+</project>

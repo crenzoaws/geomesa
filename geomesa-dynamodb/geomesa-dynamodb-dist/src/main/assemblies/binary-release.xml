@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>bin</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>geomesa-dynamodb_%%scala.binary.version%%-%%project.version%%</baseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <useProjectArtifact>false</useProjectArtifact>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+            <excludes>
+                <exclude>*:*:*:*:test</exclude>
+                <exclude>*:*:*:*:provided</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <fileSet>
+            <directory>../../../</directory>
+            <outputDirectory>.</outputDirectory>
+            <includes>
+                <include>LICENSE.txt</include>
+                <include>LICENSES.md</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/scripts</directory>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>755</fileMode>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>../../../docs/user</directory>
+            <outputDirectory>docs</outputDirectory>
+            <includes>
+                <include>dynamodb/**/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+</assembly>
